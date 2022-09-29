@@ -13,7 +13,7 @@ def top_5_news():
         titles_and_urls.append((new["title"], new["url"]))
         if len(titles_and_urls) > 5:
             return titles_and_urls[0:5]
-        return titles_and_urls
+    return titles_and_urls
 
 
 # Requisito 11
