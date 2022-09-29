@@ -19,3 +19,12 @@ def top_5_news():
 # Requisito 11
 def top_5_categories():
     """Seu código deve vir aqui"""
+    all_news = search_news({})
+    sorted_news = sorted(
+        all_news, key=itemgetter('comments_count'), reverse=True)
+    categories = []
+    for new in sorted_news:
+        categories.append(new["category"])
+        if 5 < len(categories):
+            return categories[0:5]
+    return categories
