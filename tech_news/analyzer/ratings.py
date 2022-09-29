@@ -8,12 +8,9 @@ def top_5_news():
     all_news = search_news({})
     sorted_news = sorted(
         all_news, key=itemgetter('comments_count'), reverse=True)
-    titles_and_urls = []
-    for new in sorted_news:
-        titles_and_urls.append((new["title"], new["url"]))
-    if len(titles_and_urls) > 5:
-        return titles_and_urls[0:5]
-    return titles_and_urls
+    if len(sorted_news) > 5:
+        return sorted_news[0:5]
+    return sorted_news
 
 
 # Requisito 11
