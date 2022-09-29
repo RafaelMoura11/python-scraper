@@ -5,12 +5,12 @@ from tech_news.database import search_news
 def top_5_news():
     """Seu código deve vir aqui"""
     all_news = search_news({})
-    sorted_news = sorted(all_news, key=lambda d: d['name'], reverse=True) 
+    sorted_news = sorted(all_news, key=lambda d: d['name'], reverse=True)
     titles_and_urls = []
     for new in sorted_news:
         titles_and_urls.append((new["title"], new["url"]))
         if len(titles_and_urls) > 5:
-            return titles_and_urls[:5]
+            return titles_and_urls[0:5]
     return titles_and_urls
 
 
