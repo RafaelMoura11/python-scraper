@@ -11,7 +11,7 @@ def top_5_news():
     titles_and_urls = []
     for new in sorted_news:
         titles_and_urls.append((new["title"], new["url"]))
-        if 5 < len(titles_and_urls):
+        if len(titles_and_urls) > 5:
             return titles_and_urls[0:5]
         return titles_and_urls
 
