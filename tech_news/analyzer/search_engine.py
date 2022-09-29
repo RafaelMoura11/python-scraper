@@ -20,7 +20,7 @@ def search_by_date(date):
         date = datetime.fromisoformat(date).strftime("%d/%m/%Y")
     except ValueError:
         raise ValueError("Data inválida")
-    db_query = {"timestamp": {"$regex": date, "$options": "i"}}
+    db_query = {"timestamp": {"$regex": date}}
     titles_and_urls = []
     news_by_date = search_news(db_query)
     for new in news_by_date:
