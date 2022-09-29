@@ -1,6 +1,15 @@
 # Requisito 6
+from tech_news.database import search_news
+
+
 def search_by_title(title):
     """Seu código deve vir aqui"""
+    db_query = {"title": title, "$options": "i"}
+    news_by_title = search_news(db_query)
+    titles_and_urls = []
+    for new in news_by_title:
+        titles_and_urls.append((new["title"], new["url"]))
+    return titles_and_urls
 
 
 # Requisito 7

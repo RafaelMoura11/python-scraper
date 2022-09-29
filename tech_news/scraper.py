@@ -1,6 +1,7 @@
 import requests
 import time
 from parsel import Selector
+from tech_news.database import create_news
 
 
 header = {"user-agent": "Fake user-agent"}
@@ -54,4 +55,17 @@ def scrape_noticia(html_content):
 
 # Requisito 5
 def get_tech_news(amount):
-    """Seu código deve vir aqui"""
+    URL = "https://blog.betrybe.com"
+    html = fetch(URL)
+    news = []
+
+    while len(news) < amount:
+        link_list = scrape_novidades(html)
+        for link in link_list:
+            new = fetch(link)
+            scraped_new = scrape_novidades(new)
+            news.append(scraped_new)
+        URL = scrape_next_page_link(html)
+
+    create_news(news)
+    return news
