@@ -11,11 +11,21 @@ def top_5_news():
     titles_and_urls = []
     for new in sorted_news:
         titles_and_urls.append((new["title"], new["url"]))
-        if len(titles_and_urls) > 5:
+        if 5 < len(titles_and_urls):
             return titles_and_urls[0:5]
-    return titles_and_urls
+        else:
+            return titles_and_urls
 
 
 # Requisito 11
 def top_5_categories():
-    """Seu código deve vir aqui"""
+    all_news = search_news({})
+    sorted_news = sorted(
+        all_news, key=itemgetter('category'), reverse=True)
+    categories = []
+    for new in sorted_news:
+        categories.append(new["category"])
+        if 5 < len(categories):
+            return categories[0:5]
+        else:
+            return categories
