@@ -22,15 +22,20 @@ def search_by_date(date):
         raise ValueError("Data inválida")
     db_query = {"timestamp": {"$regex": date, "$options": "i"}}
     titles_and_urls = []
-    news_by_title = search_news(db_query)
-    for new in news_by_title:
+    news_by_date = search_news(db_query)
+    for new in news_by_date:
         titles_and_urls.append((new["title"], new["url"]))
     return titles_and_urls
 
 
 # Requisito 8
 def search_by_tag(tag):
-    """Seu código deve vir aqui"""
+    db_query = {"tags": {"$elemMatch": {"$regex": tag, "$options": "i"}}}
+    titles_and_urls = []
+    news_by_tag = search_news(db_query)
+    for new in news_by_tag:
+        titles_and_urls.append((new["title"], new["url"]))
+    return titles_and_urls
 
 
 # Requisito 9
