@@ -6,8 +6,8 @@ from operator import itemgetter
 def top_5_news():
     """Seu código deve vir aqui"""
     all_news = search_news({})
-    sorted_news = sorted(all_news,
-    key=itemgetter('comments_count'), reverse=True)
+    sorted_news = sorted(
+        all_news, key=itemgetter('comments_count'), reverse=True)
     titles_and_urls = []
     for new in sorted_news:
         titles_and_urls.append((new["title"], new["url"]))
