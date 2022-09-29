@@ -36,7 +36,7 @@ def scrape_next_page_link(html_content):
 # Requisito 4
 def scrape_noticia(html_content):
     selector = Selector(html_content)
-    # Referencias: Repositorio Breno5g
+    # Referencias: Repositorio Breno5g (apenas a busca por summary)
     return {
         "url": selector.css("""
         head link[rel="canonical"]::attr(href)""").get(),
