@@ -5,8 +5,7 @@ from datetime import datetime
 
 def search_by_title(title):
     """Seu código deve vir aqui"""
-    db_query = {"title": {"$regex": title, "$options": "i"}}
-    news_by_title = search_news(db_query)
+    news_by_title = search_news({"title": {"$regex": title, "$options": "i"}})
     titles_and_urls = []
     for new in news_by_title:
         titles_and_urls.append((new["title"], new["url"]))
@@ -20,9 +19,8 @@ def search_by_date(date):
         date = datetime.fromisoformat(date).strftime("%d/%m/%Y")
     except ValueError:
         raise ValueError("Data inválida")
-    db_query = {"timestamp": {"$regex": date}}
     titles_and_urls = []
-    news_by_date = search_news(db_query)
+    news_by_date = search_news({"timestamp": {"$regex": date}})
     for new in news_by_date:
         titles_and_urls.append((new["title"], new["url"]))
     return titles_and_urls
@@ -30,9 +28,9 @@ def search_by_date(date):
 
 # Requisito 8
 def search_by_tag(tag):
-    db_query = {"tags": {"$elemMatch": {"$regex": tag, "$options": "i"}}}
     titles_and_urls = []
-    news_by_tag = search_news(db_query)
+    news_by_tag = search_news(
+        {"tags": {"$elemMatch": {"$regex": tag, "$options": "i"}}})
     for new in news_by_tag:
         titles_and_urls.append((new["title"], new["url"]))
     return titles_and_urls
@@ -41,8 +39,8 @@ def search_by_tag(tag):
 # Requisito 9
 def search_by_category(category):
     """Seu código deve vir aqui"""
-    db_query = {"category": {"$regex": category, "$options": "i"}}
-    news_by_category = search_news(db_query)
+    news_by_category = search_news(
+        {"category": {"$regex": category, "$options": "i"}})
     titles_and_urls = []
     for new in news_by_category:
         titles_and_urls.append((new["title"], new["url"]))
