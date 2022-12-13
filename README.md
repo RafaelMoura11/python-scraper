@@ -1,13 +1,23 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+# Python Scraper
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+The Python Scraper Project was a challenge created by the Web Development Course [Trybe](https://www.betrybe.com/). There were 11 empty functions to be implemented. The whole project is intended to scrape data from a website and insert them into the database MongoDB
+
+Both MongoDB and Docker files were already provided by Trybe and my role was to make what they demanded
+
+To make sure that they were working rightly, I had to test them using Trybe test files which were provided by them as well
+
+Once I got through those 11 challenges I was finally approved in this project
+
+## Stacks
+
+- Python
+
+- Scrap
+
+- Docker
+
+- MongoDB
+
+
+
